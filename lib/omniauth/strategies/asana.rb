@@ -9,10 +9,6 @@ module OmniAuth
         :token_url => 'https://app.asana.com/-/oauth_token'
       }
 
-      def request_phase
-        super
-      end
-
       def authorize_params
         super.tap do |params|
           if request.params['client_options']
@@ -25,8 +21,8 @@ module OmniAuth
 
       info do
         {
-          'name' => raw_info['name'],
-          'email' => raw_info['email']
+          name: raw_info['name'],
+          email: raw_info['email']
         }
       end
 
